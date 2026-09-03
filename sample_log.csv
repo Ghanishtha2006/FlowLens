@@ -1,0 +1,11 @@
+﻿case_id,activity,timestamp
+101,Submit Request,2026-09-01 09:00:00
+101,Manager Approval,2026-09-01 10:30:00
+101,Security Review,2026-09-01 11:00:00
+101,Resource Provisioning,2026-09-03 16:00:00
+101,Ticket Closed,2026-09-03 17:00:00
+102,Submit Request,2026-09-01 09:15:00
+102,Manager Approval,2026-09-01 11:45:00
+102,Security Review,2026-09-01 12:30:00
+102,Resource Provisioning,2026-09-04 14:00:00
+102,Ticket Closed,2026-09-04 15:30:00
