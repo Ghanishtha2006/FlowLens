@@ -1,42 +1,496 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* App.css - FlowLens Enterprise Dark Theme */
+
+.flowlens-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #020617;
+  color: #F8FAFC;
+  font-family: system-ui, sans-serif;
+  user-select: none;
+}
+
+.flowlens-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  background-color: #0F172A;
+  border-bottom: 1px solid #1E293B;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+  flex-shrink: 0;
+}
+
+.flowlens-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.flowlens-logo {
+  height: 38px;
+  width: 38px;
+  background-color: #4F46E5;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: #FFFFFF;
+  font-size: 18px;
+}
+
+.flowlens-title-group h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.flowlens-badge {
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  background-color: rgba(99, 102, 241, 0.2);
+  color: #818CF8;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 9999px;
+}
+
+.flowlens-subtitle {
+  margin: 0;
+  font-size: 11px;
+  color: #94A3B8;
+}
+
+.flowlens-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.flowlens-file-upload {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #020617;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: 1px solid #1E293B;
+}
+
+.flowlens-file-label {
+  font-size: 12px;
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+.flowlens-file-input {
+  font-size: 12px;
+  color: #CBD5E1;
+  cursor: pointer;
+}
+
+.flowlens-analyze-btn {
+  padding: 9px 20px;
+  background: linear-gradient(to right, #4F46E5, #7C3AED);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  transition: opacity 0.2s;
+}
+
+.flowlens-analyze-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.flowlens-kpi-banner {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  padding: 12px 28px;
+  background-color: rgba(15, 23, 42, 0.8);
+  border-bottom: 1px solid #1E293B;
+  flex-shrink: 0;
+}
+
+.flowlens-kpi-card {
+  background-color: #0F172A;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #1E293B;
+  display: flex;
+  flex-direction: column;
+}
+
+.flowlens-kpi-title {
+  font-size: 11px;
+  color: #94A3B8;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.flowlens-kpi-value-indigo {
+  font-size: 18px;
+  font-weight: 800;
+  color: #818CF8;
+}
+
+.flowlens-kpi-value-red {
+  font-size: 18px;
+  font-weight: 800;
+  color: #F87171;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.flowlens-kpi-value-green {
+  font-size: 18px;
+  font-weight: 800;
+  color: #34D399;
+}
+
+.flowlens-dot-red {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: #EF4444;
+  display: inline-block;
+}
+
+.flowlens-workspace {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  position: relative;
+  min-height: 0;
+  background-color: #020617;
+}
+
+.flowlens-canvas-wrapper {
+  flex: 1;
+  height: 100%;
+  position: relative;
+}
+
+.flowlens-sidebar {
+  width: 320px;
+  background-color: #0F172A;
+  border-left: 1px solid #1E293B;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -10px 0 25px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  overflow-y: auto;
+}
+
+.flowlens-sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #1E293B;
+  padding-bottom: 12px;
+}
+
+.flowlens-sidebar-header h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.flowlens-close-btn {
+  background: none;
+  border: none;
+  color: #94A3B8;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.flowlens-sidebar-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 13px;
+}
+
+.flowlens-field-label {
+  color: #94A3B8;
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.flowlens-field-value-strong {
+  color: #F8FAFC;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.flowlens-field-value-code {
+  background-color: #020617;
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: #818CF8;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+.flowlens-field-value-green {
+  color: #34D399;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.flowlens-field-value-red {
+  color: #F87171;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.flowlens-status-pill-start {
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+}
+
+.flowlens-status-pill-end {
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #F87171;
+}
+
+.flowlens-status-pill-mid {
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  background-color: rgba(99, 102, 241, 0.2);
+  color: #818CF8;
+}
+
+.flowlens-sidebar-footer {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #1E293B;
+  font-size: 11px;
+  color: #64748B;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.flowlens-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 28px;
+  background-color: #0F172A;
+  border-top: 1px solid #1E293B;
+  font-size: 12px;
+  color: #94A3B8;
+  flex-shrink: 0;
+  z-index: 20;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.flowlens-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.card {
-  padding: 2em;
+.flowlens-system-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #34D399;
+  font-weight: 500;
 }
 
-.read-the-docs {
-  color: #888;
+.flowlens-dot-green {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: #10B981;
+  display: inline-block;
+}
+
+
+/* --- FlowLens Home / Upload Page Styles --- */
+.flowlens-nav-tabs {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.flowlens-tab {
+  background: none;
+  border: none;
+  color: #94A3B8;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.flowlens-tab.active {
+  color: #FFFFFF;
+  background-color: #1E293B;
+  border-bottom: 2px solid #4F46E5;
+}
+
+.flowlens-home-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background-color: #020617;
+  overflow-y: auto;
+}
+
+.flowlens-upload-card {
+  width: 100%;
+  max-width: 900px;
+  background-color: #0F172A;
+  border: 1px solid #1E293B;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.flowlens-dropzone {
+  border: 2px dashed #334155;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #020617;
+}
+
+.flowlens-dropzone-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.flowlens-browse-btn {
+  background-color: #1E293B;
+  color: #F8FAFC;
+  border: 1px solid #475569;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.flowlens-ready-badge {
+  color: #34D399;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.flowlens-mapping-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.flowlens-mapping-box {
+  background-color: #020617;
+  border: 1px solid #1E293B;
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.flowlens-mapping-box label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #94A3B8;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.flowlens-select-dropdown {
+  background-color: #0F172A;
+  color: #F8FAFC;
+  border: 1px solid #334155;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: monospace;
+}
+
+.flowlens-config-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #020617;
+  border: 1px solid #1E293B;
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 13px;
+  color: #94A3B8;
+}
+
+.flowlens-validation-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #020617;
+  border: 1px solid #1E293B;
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.flowlens-preview-pill {
+  background-color: #1E293B;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #CBD5E1;
+}
+
+.flowlens-validate-btn {
+  background: linear-gradient(to right, #4F46E5, #7C3AED);
+  color: #FFFFFF;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
 }
