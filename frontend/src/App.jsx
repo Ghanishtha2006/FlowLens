@@ -46,7 +46,7 @@ const getLayoutedElements = (nodes, edges, direction = 'TB') => {
 };
 
 const initialSampleNodes = [
-  { id: '1', data: { label: '🚀 Created' }, style: { background: '#F0FDF4', border: '2px solid #10B981', borderRadius: '12px', padding: '12px', fontSize: '13px', fontWeight: '600', color: '#065F46', width: 220, boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)', cursor: 'pointer' } },
+  { id: '1', data: { label: '🚀 Created' }, style: { background: '#ECFDF5', border: '2px solid #10B981', borderRadius: '12px', padding: '12px', fontSize: '13px', fontWeight: '600', color: '#065F46', width: 220, boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)', cursor: 'pointer' } },
   { id: '2', data: { label: '⚡ Packed' }, style: { background: '#FFFFFF', border: '2px solid #CBD5E1', borderRadius: '12px', padding: '12px', fontSize: '13px', fontWeight: '600', color: '#0F172A', width: 220, boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)', cursor: 'pointer' } },
   { id: '3', data: { label: '✅ Delivered' }, style: { background: '#FEF2F2', border: '2px solid #EF4444', borderRadius: '12px', padding: '12px', fontSize: '13px', fontWeight: '600', color: '#991B1B', width: 220, boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)', cursor: 'pointer' } },
 ];
@@ -59,6 +59,7 @@ const initialSampleEdges = [
 const { nodes: layoutedSampleNodes, edges: layoutedSampleEdges } = getLayoutedElements(initialSampleNodes, initialSampleEdges, 'TB');
 
 export default function App() {
+  const [theme, setTheme] = useState('light'); // 'light' (cream) or 'dark' (deep blue)
   const [currentPage, setCurrentPage] = useState('upload'); // 'upload' or 'explorer'
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState('Demo Orders.csv');
@@ -75,6 +76,10 @@ export default function App() {
 
   const [nodes, setNodes, onNodesChange] = useNodesState(layoutedSampleNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(layoutedSampleEdges);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  };
 
   const handleFileChange = (e) => {
     if (e.target.files[0]) {
@@ -95,9 +100,9 @@ export default function App() {
   const onEdgeClick = (event, edge) => setSelectedElement({ type: 'edge', ...edge });
 
   return (
-    <div className="flowlens-container">
+    <div className={`flowlens-container ${theme}`}>
 
-      {/* NAVIGATION BAR */}
+      {/* PROFESSIONAL NAVIGATION BAR */}
       <header className="flowlens-header">
         <div className="flowlens-brand">
           <div className="flowlens-logo">F</div>
@@ -122,12 +127,18 @@ export default function App() {
           >
             Process Explorer
           </button>
-          {/* <button className="flowlens-tab">Dashboard</button> */}
         </div>
 
-        {/* Right Info Header Badge */}
-        <div style={{ fontSize: '13px', fontWeight: '600', color: '#059669', background: '#ECFDF5', padding: '6px 14px', borderRadius: '8px', border: '1px solid #A7F3D0' }}>
-          {currentPage === 'explorer' && <span>📁 Active Log: {fileName}</span>}
+        {/* Right Nav: Theme Toggle & Active Log */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          {currentPage === 'explorer' && (
+            <span style={{ fontSize: '12px', fontWeight: '600', opacity: 0.8 }}>
+              📁 {fileName}
+            </span>
+          )}
+          <button onClick={toggleTheme} className="flowlens-theme-toggle">
+            {theme === 'light' ? '🌙 Deep Blue Dark' : '☀️ Warm Cream Light'}
+          </button>
         </div>
       </header>
 
@@ -137,12 +148,12 @@ export default function App() {
           <div className="flowlens-upload-card">
             <div className="flowlens-dropzone">
               <div className="flowlens-dropzone-left">
-                <span style={{ fontSize: '12px', fontWeight: '700', textTransform: 'uppercase', color: '#64748B' }}>Choose CSV File</span>
+                <span style={{ fontSize: '12px', fontWeight: '700', textTransform: 'uppercase', opacity: 0.7 }}>Choose CSV File</span>
                 <label className="flowlens-browse-btn">
                   Browse...
                   <input type="file" accept=".csv" onChange={handleFileChange} style={{ display: 'none' }} />
                 </label>
-                <span style={{ fontFamily: 'monospace', fontSize: '13px', color: '#4F46E5', fontWeight: '600' }}>{fileName}</span>
+                <span style={{ fontFamily: 'monospace', fontSize: '13px', fontWeight: '600' }}>{fileName}</span>
               </div>
               <span className="flowlens-ready-badge">✓ Ready to Map</span>
             </div>
@@ -193,13 +204,12 @@ export default function App() {
         </div>
       )}
 
-      {/* PAGE 2: PROCESS EXPLORER CANVAS PAGE (Structured like reference design) */}
+      {/* PAGE 2: PROCESS EXPLORER CANVAS PAGE */}
       {currentPage === 'explorer' && (
         <div className="flowlens-explorer-container">
           
-          {/* Top Theme-Appropriate Stat Bar */}
           <div className="flowlens-explorer-topbar">
-            <span className="flowlens-topbar-item">Active Log: <strong>{fileName}</strong></span>
+            <span>Active Log: <strong>{fileName}</strong></span>
             <div className="flowlens-topbar-metrics">
               <span className="flowlens-metric-pill">Cases: <strong>{metrics.total_cases}</strong></span>
               <span className="flowlens-metric-pill">Events: <strong>{metrics.total_events}</strong></span>
@@ -207,7 +217,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* Main Contained Graph Canvas Card */}
           <div className="flowlens-canvas-card">
             <ReactFlow
               nodes={nodes}
@@ -218,16 +227,13 @@ export default function App() {
               onEdgeClick={onEdgeClick}
               fitView
             >
-              <Background color="#D9D2C7" gap={20} size={1} />
+              <Background color={theme === 'light' ? '#D9D2C7' : '#334155'} gap={20} size={1} />
               <Controls className="flowlens-react-controls" />
               <MiniMap className="flowlens-minimap" nodeStrokeWidth={3} zoomable pannable />
             </ReactFlow>
           </div>
 
-          {/* Bottom Interactive Control & Inspection Grid (Matching Reference Design) */}
           <div className="flowlens-bottom-grid">
-            
-            {/* Selected Edge / Node Inspector Box */}
             <div className="flowlens-inspector-box">
               <div className="flowlens-box-header">
                 <span>{selectedElement?.type === 'node' ? 'SELECTED ACTIVITY INSPECTOR' : 'SELECTED EDGE INSPECTOR'}</span>
@@ -239,29 +245,28 @@ export default function App() {
                 {selectedElement?.type === 'node' ? (
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
-                      <strong style={{ fontSize: '15px', color: '#0F172A' }}>{selectedElement.data.label}</strong>
-                      <p style={{ margin: '4px 0 0 0', fontSize: '12px', color: '#64748B' }}>Node ID: {selectedElement.id}</p>
+                      <strong style={{ fontSize: '15px' }}>{selectedElement.data.label}</strong>
+                      <p style={{ margin: '4px 0 0 0', fontSize: '12px', opacity: 0.7 }}>Node ID: {selectedElement.id}</p>
                     </div>
                     <span style={{ fontSize: '13px', fontWeight: '700', color: '#059669' }}>Frequency: Active</span>
                   </div>
                 ) : (
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
-                      <strong style={{ fontSize: '15px', color: '#0F172A' }}>{selectedElement?.source || 'Created'} ➔ {selectedElement?.target || 'Packed'}</strong>
-                      <p style={{ margin: '4px 0 0 0', fontSize: '12px', color: '#64748B' }}>Mean: <strong>{selectedElement?.label || '70 min'}</strong> | Occurrences: 2</p>
+                      <strong style={{ fontSize: '15px' }}>{selectedElement?.source || 'Created'} ➔ {selectedElement?.target || 'Packed'}</strong>
+                      <p style={{ margin: '4px 0 0 0', fontSize: '12px', opacity: 0.7 }}>Mean: <strong>{selectedElement?.label || '70 min'}</strong> | Occurrences: 2</p>
                     </div>
                   </div>
                 )}
               </div>
             </div>
 
-            {/* Canvas Interaction & Filter Controls */}
             <div className="flowlens-inspector-box">
               <div className="flowlens-box-header">
                 <span>CANVAS INTERACTION & FILTER</span>
               </div>
               <div className="flowlens-box-content" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <div style={{ fontSize: '12px', color: '#475569' }}>Variant Filter: <strong style={{ color: '#4F46E5' }}>All Cases (100%)</strong></div>
+                <div style={{ fontSize: '12px' }}>Variant Filter: <strong style={{ color: '#4F46E5' }}>All Cases (100%)</strong></div>
                 <div style={{ display: 'flex', gap: '8px' }}>
                   <button className="flowlens-filter-btn" onClick={() => alert('View reset')}>Reset view</button>
                   <button className="flowlens-filter-btn">Zoom in +</button>
@@ -269,16 +274,14 @@ export default function App() {
                 </div>
               </div>
             </div>
-
           </div>
 
-          {/* Process Health Dashboard & Variant Metrics Strip */}
           <div className="flowlens-health-strip">
             <div className="flowlens-health-header">PROCESS HEALTH DASHBOARD & VARIANT METRICS</div>
             <div className="flowlens-health-content">
               <div>
                 <span className="flowlens-health-label">Completed Cases</span>
-                <div className="flowlens-health-val">2 <span style={{ fontSize: '13px', color: '#64748B', fontWeight: '400' }}>/ 3 total</span></div>
+                <div className="flowlens-health-val">2 <span style={{ fontSize: '13px', fontWeight: '400', opacity: 0.7 }}>/ 3 total</span></div>
               </div>
               <div className="flowlens-health-divider"></div>
               <div>
@@ -288,8 +291,8 @@ export default function App() {
               <div className="flowlens-health-divider"></div>
               <div style={{ flex: 1 }}>
                 <span className="flowlens-health-label">Observed Path Variants</span>
-                <div style={{ fontSize: '13px', fontWeight: '600', color: '#1E293B', marginTop: '4px' }}>
-                  <span style={{ color: '#4F46E5' }}>Variant A:</span> 2 cases (66.7%) | <span style={{ color: '#64748B' }}>Variant B:</span> 1 case (33.3%)
+                <div style={{ fontSize: '13px', fontWeight: '600', marginTop: '4px' }}>
+                  <span style={{ color: '#4F46E5' }}>Variant A:</span> 2 cases (66.7%) | <span style={{ opacity: 0.7 }}>Variant B:</span> 1 case (33.3%)
                 </div>
               </div>
             </div>
