@@ -1,4 +1,4 @@
-/* App.css - FlowLens Enterprise Dark Theme */
+/* App.css - FlowLens Dynamic Theme Support */
 
 .flowlens-container {
   display: flex;
@@ -6,20 +6,148 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-color: #020617;
-  color: #F8FAFC;
   font-family: system-ui, sans-serif;
   user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* --- LIGHT / CREAM THEME (Default) --- */
+.flowlens-container.light {
+  background-color: #FBF9F5;
+  color: #1E293B;
+}
+
+.flowlens-container.light .flowlens-header,
+.flowlens-container.light .flowlens-explorer-topbar,
+.flowlens-container.light .flowlens-upload-card,
+.flowlens-container.light .flowlens-inspector-box,
+.flowlens-container.light .flowlens-health-strip,
+.flowlens-container.light .flowlens-sidebar,
+.flowlens-container.light .flowlens-footer {
+  background-color: #F4EFE6;
+  border-color: #E6DFD5;
+  color: #1E293B;
+}
+
+.flowlens-container.light .flowlens-box-header,
+.flowlens-container.light .flowlens-health-header {
+  background-color: #EFE9DE;
+  border-bottom-color: #E6DFD5;
+  color: #475569;
+}
+
+.flowlens-container.light .flowlens-dropzone,
+.flowlens-container.light .flowlens-mapping-box,
+.flowlens-container.light .flowlens-config-strip,
+.flowlens-container.light .flowlens-validation-row,
+.flowlens-container.light .flowlens-canvas-card {
+  background-color: #FBF9F5;
+  border-color: #E6DFD5;
+  color: #1E293B;
+}
+
+.flowlens-container.light .flowlens-file-upload,
+.flowlens-container.light .flowlens-preview-pill,
+.flowlens-container.light .flowlens-metric-pill,
+.flowlens-container.light .flowlens-field-value-code {
+  background-color: #EFE9DE;
+  border-color: #D9D2C7;
+  color: #334155;
+}
+
+.flowlens-container.light .flowlens-select-dropdown,
+.flowlens-container.light .flowlens-browse-btn,
+.flowlens-container.light .flowlens-filter-btn {
+  background-color: #F4EFE6;
+  border-color: #D9D2C7;
+  color: #0F172A;
+}
+
+.flowlens-container.light .flowlens-tab {
+  color: #64748B;
+}
+
+.flowlens-container.light .flowlens-tab.active {
+  color: #0F172A;
+  background-color: #EFE9DE;
+}
+
+
+/* --- DARK / DEEP BLUE THEME --- */
+.flowlens-container.dark {
+  background-color: #020617;
+  color: #F8FAFC;
+}
+
+.flowlens-container.dark .flowlens-header,
+.flowlens-container.dark .flowlens-explorer-topbar,
+.flowlens-container.dark .flowlens-upload-card,
+.flowlens-container.dark .flowlens-inspector-box,
+.flowlens-container.dark .flowlens-health-strip,
+.flowlens-container.dark .flowlens-sidebar,
+.flowlens-container.dark .flowlens-footer {
+  background-color: #0F172A;
+  border-color: #1E293B;
+  color: #F8FAFC;
+}
+
+.flowlens-container.dark .flowlens-box-header,
+.flowlens-container.dark .flowlens-health-header {
+  background-color: #1E293B;
+  border-bottom-color: #334155;
+  color: #94A3B8;
+}
+
+.flowlens-container.dark .flowlens-dropzone,
+.flowlens-container.dark .flowlens-mapping-box,
+.flowlens-container.dark .flowlens-config-strip,
+.flowlens-container.dark .flowlens-validation-row,
+.flowlens-container.dark .flowlens-canvas-card {
+  background-color: #020617;
+  border-color: #1E293B;
+  color: #F8FAFC;
+}
+
+.flowlens-container.dark .flowlens-file-upload,
+.flowlens-container.dark .flowlens-preview-pill,
+.flowlens-container.dark .flowlens-metric-pill,
+.flowlens-container.dark .flowlens-field-value-code {
+  background-color: #0F172A;
+  border-color: #334155;
+  color: #CBD5E1;
+}
+
+.flowlens-container.dark .flowlens-select-dropdown,
+.flowlens-container.dark .flowlens-browse-btn,
+.flowlens-container.dark .flowlens-filter-btn {
+  background-color: #1E293B;
+  border-color: #475569;
+  color: #F8FAFC;
+}
+
+.flowlens-container.dark .flowlens-tab {
+  color: #94A3B8;
+}
+
+.flowlens-container.dark .flowlens-tab.active {
+  color: #FFFFFF;
+  background-color: #1E293B;
+}
+
+.flowlens-container.dark .flowlens-react-controls,
+.flowlens-container.dark .flowlens-minimap {
+  background: #0F172A !important;
+  border-color: #334155 !important;
+}
+
+
+/* --- Shared Base Elements --- */
 .flowlens-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 28px;
-  background-color: #0F172A;
-  border-bottom: 1px solid #1E293B;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  padding: 22px 36px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
   z-index: 20;
   flex-shrink: 0;
 }
@@ -27,287 +155,272 @@
 .flowlens-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .flowlens-logo {
-  height: 38px;
-  width: 38px;
+  height: 44px;
+  width: 44px;
   background-color: #4F46E5;
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 900;
   color: #FFFFFF;
-  font-size: 18px;
+  font-size: 20px;
 }
 
-.flowlens-title-group h1 {
+.flowlens-title-row h1 {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
-  color: #FFFFFF;
 }
 
-.flowlens-badge {
-  padding: 2px 8px;
-  font-size: 10px;
+.flowlens-nav-tabs {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.flowlens-tab {
+  background: none;
+  border: none;
+  font-size: 14px;
   font-weight: 600;
-  background-color: rgba(99, 102, 241, 0.2);
-  color: #818CF8;
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  border-radius: 9999px;
-}
-
-.flowlens-subtitle {
-  margin: 0;
-  font-size: 11px;
-  color: #94A3B8;
-}
-
-.flowlens-controls {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.flowlens-file-upload {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background-color: #020617;
-  padding: 6px 12px;
-  border-radius: 10px;
-  border: 1px solid #1E293B;
-}
-
-.flowlens-file-label {
-  font-size: 12px;
-  color: #94A3B8;
-  font-weight: 500;
-}
-
-.flowlens-file-input {
-  font-size: 12px;
-  color: #CBD5E1;
   cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: all 0.2s;
 }
 
-.flowlens-analyze-btn {
-  padding: 9px 20px;
+.flowlens-theme-toggle {
   background: linear-gradient(to right, #4F46E5, #7C3AED);
   color: #FFFFFF;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
   font-weight: 600;
   font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  border-radius: 10px;
-  border: none;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
-  transition: opacity 0.2s;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+  transition: transform 0.1s;
 }
 
-.flowlens-analyze-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+.flowlens-theme-toggle:active {
+  transform: scale(0.96);
 }
 
-.flowlens-kpi-banner {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+.flowlens-home-container, .flowlens-explorer-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 32px;
   gap: 16px;
-  padding: 12px 28px;
-  background-color: rgba(15, 23, 42, 0.8);
-  border-bottom: 1px solid #1E293B;
-  flex-shrink: 0;
-}
-
-.flowlens-kpi-card {
-  background-color: #0F172A;
-  padding: 12px 16px;
-  border-radius: 10px;
-  border: 1px solid #1E293B;
-  display: flex;
-  flex-direction: column;
-}
-
-.flowlens-kpi-title {
-  font-size: 11px;
-  color: #94A3B8;
-  font-weight: 500;
-  margin-bottom: 4px;
-}
-
-.flowlens-kpi-value-indigo {
-  font-size: 18px;
-  font-weight: 800;
-  color: #818CF8;
-}
-
-.flowlens-kpi-value-red {
-  font-size: 18px;
-  font-weight: 800;
-  color: #F87171;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.flowlens-kpi-value-green {
-  font-size: 18px;
-  font-weight: 800;
-  color: #34D399;
-}
-
-.flowlens-dot-red {
-  height: 8px;
-  width: 8px;
-  border-radius: 50%;
-  background-color: #EF4444;
-  display: inline-block;
-}
-
-.flowlens-workspace {
-  display: flex;
-  flex: 1;
-  width: 100%;
-  position: relative;
-  min-height: 0;
-  background-color: #020617;
-}
-
-.flowlens-canvas-wrapper {
-  flex: 1;
-  height: 100%;
-  position: relative;
-}
-
-.flowlens-sidebar {
-  width: 320px;
-  background-color: #0F172A;
-  border-left: 1px solid #1E293B;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: -10px 0 25px rgba(0, 0, 0, 0.5);
-  z-index: 10;
   overflow-y: auto;
 }
 
-.flowlens-sidebar-header {
+.flowlens-upload-card {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  border: 1px solid;
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.flowlens-dropzone {
+  border: 2px dashed;
+  border-radius: 12px;
+  padding: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
-  border-bottom: 1px solid #1E293B;
-  padding-bottom: 12px;
 }
 
-.flowlens-sidebar-header h3 {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 700;
-  color: #FFFFFF;
+.flowlens-dropzone-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.flowlens-close-btn {
-  background: none;
-  border: none;
-  color: #94A3B8;
-  font-size: 16px;
+.flowlens-browse-btn {
+  border: 1px solid;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
   cursor: pointer;
-  font-weight: bold;
 }
 
-.flowlens-sidebar-body {
+.flowlens-ready-badge {
+  color: #059669;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.flowlens-mapping-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.flowlens-mapping-box {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 14px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  font-size: 13px;
+  gap: 8px;
 }
 
-.flowlens-field-label {
-  color: #94A3B8;
-  display: block;
+.flowlens-mapping-box label {
   font-size: 11px;
   text-transform: uppercase;
-  margin-bottom: 2px;
-}
-
-.flowlens-field-value-strong {
-  color: #F8FAFC;
-  font-size: 15px;
   font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
-.flowlens-field-value-code {
-  background-color: #020617;
-  padding: 4px 8px;
+.flowlens-select-dropdown {
+  border: 1px solid;
+  padding: 9px 12px;
   border-radius: 6px;
-  color: #818CF8;
-  font-size: 12px;
+  font-size: 13px;
   font-family: monospace;
 }
 
-.flowlens-field-value-green {
-  color: #34D399;
+.flowlens-config-strip, .flowlens-validation-row {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.flowlens-preview-pill {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.flowlens-validate-btn {
+  background: linear-gradient(to right, #4F46E5, #7C3AED);
+  color: #FFFFFF;
+  border: none;
+  padding: 13px 30px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+.flowlens-explorer-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.flowlens-topbar-metrics {
+  display: flex;
+  gap: 12px;
+}
+
+.flowlens-metric-pill {
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid;
+  font-size: 12px;
+}
+
+.flowlens-canvas-card {
+  width: 100%;
+  height: 380px;
+  border: 1px solid;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.flowlens-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.flowlens-inspector-box, .flowlens-health-strip {
+  border: 1px solid;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.flowlens-box-header, .flowlens-health-header {
+  padding: 10px 16px;
+  font-size: 11px;
   font-weight: 700;
-  font-size: 16px;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.flowlens-field-value-red {
-  color: #F87171;
-  font-weight: 700;
-  font-size: 16px;
+.flowlens-box-content {
+  padding: 16px;
 }
 
-.flowlens-status-pill-start {
-  padding: 3px 10px;
-  border-radius: 9999px;
-  font-size: 11px;
+.flowlens-filter-btn {
+  border: 1px solid;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
   font-weight: 600;
-  background-color: rgba(16, 185, 129, 0.2);
-  color: #34D399;
+  cursor: pointer;
 }
 
-.flowlens-status-pill-end {
-  padding: 3px 10px;
-  border-radius: 9999px;
+.flowlens-health-content {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.flowlens-health-label {
   font-size: 11px;
+  text-transform: uppercase;
   font-weight: 600;
-  background-color: rgba(239, 68, 68, 0.2);
-  color: #F87171;
 }
 
-.flowlens-status-pill-mid {
-  padding: 3px 10px;
-  border-radius: 9999px;
-  font-size: 11px;
-  font-weight: 600;
-  background-color: rgba(99, 102, 241, 0.2);
-  color: #818CF8;
+.flowlens-health-val {
+  font-size: 18px;
+  font-weight: 800;
+  margin-top: 2px;
 }
 
-.flowlens-sidebar-footer {
-  margin-top: auto;
-  padding-top: 16px;
-  border-top: 1px solid #1E293B;
-  font-size: 11px;
-  color: #64748B;
-  text-align: center;
+.flowlens-health-divider {
+  width: 1px;
+  height: 35px;
+  background-color: currentColor;
+  opacity: 0.2;
 }
 
 .flowlens-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 28px;
-  background-color: #0F172A;
-  border-top: 1px solid #1E293B;
+  padding: 12px 28px;
+  border-top: 1px solid;
   font-size: 12px;
-  color: #94A3B8;
   flex-shrink: 0;
   z-index: 20;
 }
@@ -322,7 +435,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #34D399;
+  color: #059669;
   font-weight: 500;
 }
 
@@ -332,165 +445,4 @@
   border-radius: 50%;
   background-color: #10B981;
   display: inline-block;
-}
-
-
-/* --- FlowLens Home / Upload Page Styles --- */
-.flowlens-nav-tabs {
-  display: flex;
-  gap: 24px;
-  align-items: center;
-}
-
-.flowlens-tab {
-  background: none;
-  border: none;
-  color: #94A3B8;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: all 0.2s;
-}
-
-.flowlens-tab.active {
-  color: #FFFFFF;
-  background-color: #1E293B;
-  border-bottom: 2px solid #4F46E5;
-}
-
-.flowlens-home-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  background-color: #020617;
-  overflow-y: auto;
-}
-
-.flowlens-upload-card {
-  width: 100%;
-  max-width: 900px;
-  background-color: #0F172A;
-  border: 1px solid #1E293B;
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.flowlens-dropzone {
-  border: 2px dashed #334155;
-  border-radius: 12px;
-  padding: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #020617;
-}
-
-.flowlens-dropzone-left {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.flowlens-browse-btn {
-  background-color: #1E293B;
-  color: #F8FAFC;
-  border: 1px solid #475569;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 13px;
-  cursor: pointer;
-}
-
-.flowlens-ready-badge {
-  color: #34D399;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.flowlens-mapping-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.flowlens-mapping-box {
-  background-color: #020617;
-  border: 1px solid #1E293B;
-  border-radius: 10px;
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.flowlens-mapping-box label {
-  font-size: 11px;
-  text-transform: uppercase;
-  color: #94A3B8;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-}
-
-.flowlens-select-dropdown {
-  background-color: #0F172A;
-  color: #F8FAFC;
-  border: 1px solid #334155;
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-size: 13px;
-  font-family: monospace;
-}
-
-.flowlens-config-strip {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #020617;
-  border: 1px solid #1E293B;
-  border-radius: 10px;
-  padding: 16px 20px;
-  font-size: 13px;
-  color: #94A3B8;
-}
-
-.flowlens-validation-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #020617;
-  border: 1px solid #1E293B;
-  border-radius: 10px;
-  padding: 16px 20px;
-}
-
-.flowlens-preview-pill {
-  background-color: #1E293B;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 12px;
-  color: #CBD5E1;
-}
-
-.flowlens-validate-btn {
-  background: linear-gradient(to right, #4F46E5, #7C3AED);
-  color: #FFFFFF;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 10px;
-  font-weight: bold;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
 }

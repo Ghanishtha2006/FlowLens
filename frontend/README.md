@@ -71,4 +71,3 @@ Navigate to:
 
 ```text
 http://localhost:5173
-```
