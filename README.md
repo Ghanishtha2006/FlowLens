@@ -2,9 +2,9 @@
 
 > **Interactive Full-Stack Process Mining & Bottleneck Detection Engine**
 
-FlowLens discovers end-to-end workflow topologies directly from raw event logs, models transition latencies, and flags operational bottlenecks using **FastAPI**, **PM4Py**, and **React Flow**.
+FlowLens discovers end-to-end workflow topologies directly from raw event logs, models transition latencies, and flags operational bottlenecks using **FastAPI**, **PM4Py**, and **React Flow**[cite: 4, 7].
 
-FlowLens operates as an in-memory, stateless analytics engine[cite: 1, 8]. It processes event data purely in RAM using Pandas DataFrames and PM4Py, requiring zero persistent database setup, ensuring zero storage overhead, sub-second execution, and complete data privacy[cite: 1, 8].
+FlowLens operates as an in-memory, stateless analytics engine[cite: 1]. It processes event data purely in RAM using Pandas DataFrames and PM4Py, requiring zero persistent database setup, ensuring zero storage overhead, sub-second execution, and complete data privacy[cite: 1].
 
 ---
 
@@ -12,7 +12,7 @@ FlowLens operates as an in-memory, stateless analytics engine[cite: 1, 8]. It pr
 
 * **Backend:** Python 3.10+, FastAPI, PM4Py, Pandas, NumPy, Uvicorn, pytest[cite: 4]
 * **Frontend:** React 18 (Vite), React Flow (`@xyflow/react`), Tailwind CSS, Axios, Lucide Icons[cite: 4]
-* **Architecture:** 2-Tier decoupled client-server architecture with in-memory active session caching[cite: 8]
+* **Architecture:** 2-Tier decoupled client-server architecture with in-memory active session caching
 
 ---
 
