@@ -1,7 +1,7 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 import pm4py
-from pipeline import ingest_clean_and_sort, serialize_dfg_response
+from pipeline import ingest_clean_and_sort_csv, serialize_graph_to_json
 
 app = FastAPI(
     title="FlowLens Backend API",
