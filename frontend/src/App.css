@@ -446,3 +446,23 @@
   background-color: #10B981;
   display: inline-block;
 }
+
+.flowlens-badge-status {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.status-passed { 
+  color: #059669; 
+  background-color: rgba(5, 150, 105, 0.1); 
+}
+.status-failed { 
+  color: #DC2626; 
+  background-color: rgba(220, 38, 38, 0.1); 
+}
+.status-pending { 
+  color: #D97706; 
+  background-color: rgba(217, 119, 6, 0.1); 
+}
